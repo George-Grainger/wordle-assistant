@@ -8,21 +8,23 @@ async function makeNextGuess(hardmode: boolean) {
     lastFocusedWindow: true,
   });
 
-  const { guesses, masks } = await chrome.tabs.sendMessage(tab.id!, {
+  const { isOk, guesses, masks } = await chrome.tabs.sendMessage(tab.id!, {
     popupId: "wordle-helper",
   });
 
-  wasm().then(() => {
-    const row = document.getElementById("row");
-    const cells = row?.children;
+  if (isOk) {
+    wasm().then(() => {
+      const row = document.getElementById("row");
+      const cells = row?.children;
 
-    if (cells) {
-      const guess = help(guesses, masks, hardmode);
-      Array.from(cells).forEach((cell, i) => {
-        (cell as HTMLElement).innerText = guess[i] || "-";
-      });
-    }
-  });
+      if (cells) {
+        const guess = help(guesses, masks, hardmode);
+        Array.from(cells).forEach((cell, i) => {
+          (cell as HTMLElement).innerText = guess[i] || "-";
+        });
+      }
+    });
+  }
 }
 
 async function startup() {

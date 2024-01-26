@@ -6,3 +6,5 @@ pkg/
 node_modules/
 build/
 wasm-pack.log
+build.pem
+build.crx
