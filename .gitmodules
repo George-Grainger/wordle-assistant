@@ -1,0 +1,4 @@
+[submodule "wordle-solver"]
+	path = wordle-solver
+	url = https://github.com/George-Grainger/wordle-solver.git
+	branch = wasm-helper

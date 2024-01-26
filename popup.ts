@@ -12,7 +12,7 @@ async function makeNextGuess(hardmode: boolean) {
     popupId: "wordle-helper",
   });
 
-  wasm().then((module) => {
+  wasm().then(() => {
     const row = document.getElementById("row");
     const cells = row?.children;
 

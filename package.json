@@ -4,7 +4,8 @@
     "compile-ts": "esbuild --minify popup.ts --outfile=./build/popup.js && esbuild --minify content-script.ts --outfile=./build/content-script.js",
     "compile-wasm": "wasm-pack build --target web --release --out-dir ./build/pkg && npm run clean-build",
     "load-statics": "copy index.html build\\index.html && copy manifest.json build\\manifest.json && esbuild --minify popup.css --outfile=./build/popup.css",
-    "clean-build": "del build\\pkg\\package.json build\\pkg\\\readme.md build\\pkg\\.gitignore"
+    "clean-build": "del build\\pkg\\package.json build\\pkg\\readme.md build\\pkg\\.gitignore",
+    "compile-dev": "wasm-pack build --target web --dev"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.259",
