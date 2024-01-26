@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "version": "0.1.0",
+  "name": "Wordle Assistant",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.nytimes.com/games/wordle/*"],
+      "js": ["content-script.js"]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+:root {
+  /* Spacing */
+  --gap: 0.3125rem;
+
+  /* Generic colours */
+  --text: hsl(0, 0%, 0%);
+  --background: hsl(0, 0%, 100%);
+  --border: hsl(214, 9%, 84%);
+  --button: hsl(214, 9%, 84%);
+
+  /* State colors */
+  --absent: hsl(200, 2%, 48%);
+  --present: hsl(49, 51%, 57%);
+  --correct: hsl(115, 29%, 53%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Generic colours */
+    --text: hsl(0, 0%, 97%);
+    --background: hsl(240, 3%, 7%);
+    --border: hsl(240, 2%, 23%);
+    --button: hsl(200, 1%, 51%);
+
+    /* State colors */
+    --absent: hsl(240, 2%, 23%);
+    --present: hsl(49, 51%, 47%);
+    --correct: hsl(115, 29%, 43%);
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  text-rendering: optimizeSpeed;
+  width: 31.25rem;
+  padding: 1.5rem;
+
+  color: var(--text);
+  background-color: var(--background);
+}
+
+main {
+  display: grid;
+  gap: 1.5rem;
+  text-align: center;
+  margin: auto;
+}
+
+h1,
+p,
+span {
+  margin: 0;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.75em;
+  max-width: 32ch;
+  text-wrap: balance;
+  margin-inline: auto;
+}
+
+button {
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color);
+  background-color: var(--button);
+  outline: transparent;
+  padding: 1rem;
+  border: 0;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.row span {
+  display: grid;
+  place-content: center;
+  width: 3.75rem;
+  aspect-ratio: 1;
+  border: 0.125rem solid var(--border);
+  font-size: 2rem;
+  color: transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.row .show {
+  animation: flip 500ms;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0ms;
+  transition-delay: 250ms;
+  background-color: var(--_result-color, var(--absent));
+  border-color: var(--_result-color, var(--absent));
+  color: var(--background);
+  cursor: default;
+}
+
+.row .correct {
+  --_result-color: var(--correct);
+}
+
+.row .present {
+  --_result-color: var(--present);
+}
+
+.show-all .show {
+  animation-delay: var(--_a-delay);
+  transition-delay: var(--_t-delay);
+}
+
+@keyframes flip {
+  50% {
+    transform: rotateX(90deg);
+  }
+}
