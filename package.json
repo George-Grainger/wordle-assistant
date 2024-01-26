@@ -3,7 +3,7 @@
     "build": "npm run compile-wasm && npm run compile-ts && npm run load-statics",
     "compile-ts": "esbuild --minify popup.ts --outfile=./build/popup.js && esbuild --minify content-script.ts --outfile=./build/content-script.js",
     "compile-wasm": "wasm-pack build --target web --release --out-dir ./build/pkg && npm run clean-build",
-    "load-statics": "robocopy icons build\\icons && copy index.html build\\index.html && copy manifest.json build\\manifest.json && esbuild --minify popup.css --outfile=./build/popup.css",
+    "load-statics": "copy index.html build\\index.html && copy manifest.json build\\manifest.json && esbuild --minify popup.css --outfile=./build/popup.css && robocopy icons build\\icons",
     "clean-build": "del build\\pkg\\package.json build\\pkg\\readme.md build\\pkg\\.gitignore",
     "compile-dev": "wasm-pack build --target web --dev"
   },
