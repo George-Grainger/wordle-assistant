@@ -5,8 +5,8 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": ["scripting", "storage"],
-  "host_permissions": ["http://*/*", "https://*/*"],
+  "permissions": ["storage"],
+  "host_permissions": ["https://*.nytimes.com/games/wordle/*"],
   "content_security_policy": {
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
   },
