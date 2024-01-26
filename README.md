@@ -1,6 +1,6 @@
 # Wordle Assistant
 
-Wordle assistant buildt using rust and webassembly to decrease your average and let you flex on your mates.
+Wordle assistant built using Rust and WebAssembly to decrease your average and let you flex on your mates.
 
 To compile the solver in dev mode use `npm run compile-dev`.
 
