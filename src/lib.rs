@@ -29,7 +29,7 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn help(guesses: Box<[String]>, masks: Box<[String]>) -> Result<String, JsValue> {
+pub fn help(guesses: Box<[String]>, masks: Box<[String]>, hard_mode: bool) -> Result<String, JsValue> {
     if guesses.len() != masks.len() {
         warn("List of guesses and masks don't have same size");
     } 
@@ -40,6 +40,7 @@ pub fn help(guesses: Box<[String]>, masks: Box<[String]>) -> Result<String, JsVa
     // Build the solver
     let mut solver = Solver::builder();
     solver.cache = false;
+    solver.hard_mode = hard_mode;
     let mut guesser = solver.build();
     
     // Merge the two to make history
