@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "version": "0.1.0",
   "name": "Wordle Assistant",
-  "description": "A Wordle Assistant helping you solve even the most challenging days, without ruining the challenge by just giving you the answer.",
+  "description": "A Wordle Assistant helping you solve even the most hardest days, without ruining the challenge by just giving you the answer.",
   "action": {
     "default_popup": "index.html"
   },
