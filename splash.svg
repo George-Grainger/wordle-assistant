@@ -1,0 +1,19 @@
+<svg viewbox="0 0 320 320">
+	<rect
+		x="10"
+		y="10"
+		height="300"
+		width="300"
+		fill="#fff"
+		rx="10"
+		ry="10"
+		stroke="#000"
+		stroke-width="10"
+		stroke-linejoin="round"
+	/>
+	<path fill="#c9b559" d="M110 110h100v100H110z" />
+	<path fill="#6aaa64" d="M210 110h95v100h-95z" />
+	<rect x="15" y="210" height="95" width="290" fill="#6aaa64" rx="5" ry="5" />
+	<path d="M10 105h300v10H10zm0 100h300v10H10z" />
+	<path d="M105 10h10v300h-10zm100 0h10v300h-10z" />
+</svg>

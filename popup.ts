@@ -28,29 +28,10 @@ async function makeNextGuess(hardmode: boolean) {
 }
 
 async function startup() {
-  // Get the current mode being used
-  let hardmode = true;
-  const toggle = document.getElementById("switch");
-
-  if (toggle) {
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      hardmode = toggle.classList.toggle("toggle-on");
-      if (hardmode) {
-        chrome.storage.local.set({ mode: "hard" });
-      } else {
-        chrome.storage.local.set({ mode: "easy" });
-      }
-      makeNextGuess(hardmode);
-    });
-
-    chrome.storage.local.get("mode").then((result) => {
-      hardmode = toggle.classList.toggle("toggle-on", result?.mode === "hard");
-    });
-  }
-
   // Get the row in the helper
   const row = document.querySelector(".row");
+  const toggle = document.getElementById("switch");
+
   if (row) {
     row.addEventListener("click", (e) => {
       const button = (e.target as HTMLButtonElement).closest("span");
@@ -73,7 +54,24 @@ async function startup() {
       el.style.setProperty("--_a-delay", `${delay}ms`);
       el.style.setProperty("--_t-delay", `${delay + 250}ms`);
     });
-
-    makeNextGuess(hardmode);
   }
+
+  // Switch the hardmode setting
+  toggle?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const hardmode = toggle.classList.toggle("toggle-on");
+    if (hardmode) {
+      chrome.storage.local.set({ mode: "hard" });
+    } else {
+      chrome.storage.local.set({ mode: "easy" });
+    }
+    makeNextGuess(hardmode);
+  });
+
+  // Check if hardmode is set
+  chrome.storage.local.get("mode").then(({ mode }) => {
+    const hardmode = mode === "hard";
+    toggle?.classList.toggle("toggle-on", hardmode);
+    makeNextGuess(hardmode);
+  });
 }

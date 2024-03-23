@@ -146,6 +146,7 @@ button {
   border-radius: 13.33px;
   transition: border-color 0.6s ease-out;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .toggle.toggle-on {
