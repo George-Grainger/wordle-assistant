@@ -5,9 +5,10 @@
   /* Generic colours */
   --text: hsl(0, 0%, 0%);
   --background: hsl(0, 0%, 100%);
+  --letter: hsl(0, 0%, 100%);
   --border: hsl(214, 9%, 84%);
   --button: hsl(214, 9%, 84%);
-
+  
   /* State colors */
   --absent: hsl(200, 2%, 48%);
   --present: hsl(49, 51%, 57%);
@@ -19,6 +20,7 @@
     /* Generic colours */
     --text: hsl(0, 0%, 97%);
     --background: hsl(240, 3%, 7%);
+    --letter: hsl(0, 0%, 97%);
     --border: hsl(240, 2%, 23%);
     --button: hsl(200, 1%, 51%);
 
@@ -109,7 +111,7 @@ button {
   transition-delay: 250ms;
   background-color: var(--_result-color, var(--absent));
   border-color: var(--_result-color, var(--absent));
-  color: var(--background);
+  color: var(--letter);
   cursor: default;
 }
 
